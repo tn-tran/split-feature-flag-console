@@ -1,0 +1,92 @@
+{
+  "name": "splitio-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@allergan-data-labs/alle-elements-accordion": "1.14.0",
+    "@allergan-data-labs/alle-elements-action-menu": "1.16.1",
+    "@allergan-data-labs/alle-elements-avatar": "1.1.0",
+    "@allergan-data-labs/alle-elements-badge": "1.13.1",
+    "@allergan-data-labs/alle-elements-banner": "1.16.0",
+    "@allergan-data-labs/alle-elements-breadcrumb": "1.16.0",
+    "@allergan-data-labs/alle-elements-button": "1.18.2",
+    "@allergan-data-labs/alle-elements-card": "1.15.1",
+    "@allergan-data-labs/alle-elements-carousel": "1.5.1",
+    "@allergan-data-labs/alle-elements-checkbox": "1.14.0",
+    "@allergan-data-labs/alle-elements-chip": "1.16.0",
+    "@allergan-data-labs/alle-elements-core": "1.18.0",
+    "@allergan-data-labs/alle-elements-counter-badge": "1.14.0",
+    "@allergan-data-labs/alle-elements-form-control": "1.15.0",
+    "@allergan-data-labs/alle-elements-icons": "1.17.0",
+    "@allergan-data-labs/alle-elements-indicator": "^1.14.0",
+    "@allergan-data-labs/alle-elements-input": "1.18.0",
+    "@allergan-data-labs/alle-elements-layout": "1.1.0",
+    "@allergan-data-labs/alle-elements-link": "1.13.0",
+    "@allergan-data-labs/alle-elements-modal": "1.15.0",
+    "@allergan-data-labs/alle-elements-nav-drawer": "^1.17.0",
+    "@allergan-data-labs/alle-elements-progress-circle": "1.4.0",
+    "@allergan-data-labs/alle-elements-radio": "1.13.0",
+    "@allergan-data-labs/alle-elements-segmented-filter": "1.3.0",
+    "@allergan-data-labs/alle-elements-select": "^1.17.1",
+    "@allergan-data-labs/alle-elements-selection-tile": "1.15.0",
+    "@allergan-data-labs/alle-elements-side-tray": "1.16.1",
+    "@allergan-data-labs/alle-elements-skeleton": "1.4.0",
+    "@allergan-data-labs/alle-elements-switch": "1.14.0",
+    "@allergan-data-labs/alle-elements-tabs": "1.16.1",
+    "@allergan-data-labs/alle-elements-text-field": "1.16.0",
+    "@allergan-data-labs/alle-elements-toast": "1.16.0",
+    "@allergan-data-labs/alle-elements-tooltip": "1.13.0",
+    "@chakra-ui/anatomy": "2.1.1",
+    "@chakra-ui/react": "2.7.0",
+    "@chakra-ui/system": "2.5.8",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@splitsoftware/splitio-react": "2.0.1",
+    "@types/node": "^22.13.1",
+    "deepmerge-ts": "4.2.2",
+    "framer-motion": "4.1.17",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@types/jest": "^27.5.2",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-router-dom": "5.3.3",
+    "eslint": "^9.20.0",
+    "jest": "27.5.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "ts-jest": "27.1.5",
+    "tslib": "2.4.1",
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
