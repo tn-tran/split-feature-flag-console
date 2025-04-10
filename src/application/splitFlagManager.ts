@@ -41,6 +41,25 @@ export class SplitFlagManager {
     this.searchField = field;
   }
 
+  applyTreatments(treatments: Record<string, { treatment: string }>) {
+    this.splits.forEach((flag) => {
+      const override = treatments[flag.name];
+      if (override) {
+        // Optional: Add a field for override so `getCurrentTreatment` can use it
+        (flag as any).__overrideTreatment = override.treatment;
+      }
+    });
+  }
+
+  updateTreatment(flagName: string, treatment: string) {
+    // Find the flag and update its current treatment
+    const flagIndex = this.splits.findIndex((flag) => flag.name === flagName);
+    if (flagIndex >= 0) {
+      // Update the treatment in your flags data structure
+      // The exact implementation depends on how your flag data is structured
+    }
+  }
+
   fuzzyMatch(text: string, searchValue: string): boolean {
     if (!text || !searchValue) return false;
     text = text.toLowerCase();
@@ -77,6 +96,9 @@ export class SplitFlagManager {
   }
 
   getCurrentTreatment(flag: SplitFlag): string {
+    const override = (flag as any).__overrideTreatment;
+    if (override) return override;
+
     if (flag.killed || flag.status !== "ACTIVE") return "killed";
 
     const fullPartition = flag.conditions?.[0]?.partitions?.find(
