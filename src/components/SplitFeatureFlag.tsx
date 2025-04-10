@@ -49,22 +49,14 @@ const SplitFeatureFlag: React.FC<{ flagName?: string | string }> = ({
 
   // Manager is ready to be used.
   const { isReady, treatments } = useSplitTreatments({
-    names: [
-      "reporting_v2",
-      "show_status_bar",
-      "billing_updates",
-      "test_flag",
-      "test_flag2",
-    ],
+    names: ["test_flag", "test_flag2"],
   });
-
+  const flagNames = splitManager.names();
   useEffect(() => {
     // console.log(isReady);
     // console.log("Manager");
-    console.log("treatments", treatments);
+    // console.log("treatments", treatments);
   }, [isReady]);
-
-  const flagNames = splitManager.names();
 
   let treatmentResults: SplitIO.Treatments = splitClient.getTreatments([
     "test_flag",
@@ -77,9 +69,9 @@ const SplitFeatureFlag: React.FC<{ flagName?: string | string }> = ({
         null,
         2
       )}`}</pre>
-      <div>{`${
+      {/* <div>{`${
         isReady ? "SDK ready." : "SDK not ready."
-      } Feature flag: test_flag ${treatments["test_flag"].treatment}`}</div>
+      } Feature flag: test_flag ${treatments["test_flag"].treatment}`}</div> */}
     </div>
   );
 };

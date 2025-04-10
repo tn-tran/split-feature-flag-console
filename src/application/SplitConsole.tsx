@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { AddIcon } from "@allergan-data-labs/alle-elements-icons/20/addIcon";
 import {
   Accordion,
@@ -26,8 +26,7 @@ import {
   getColorToken,
 } from "@allergan-data-labs/alle-elements-core";
 import { Input } from "@allergan-data-labs/alle-elements-input";
-
-import { interceptSplitRequests } from "./handler";
+import { interceptSplitRequests, getStoredOverrides } from "./handler";
 import { SplitFlagManager } from "./splitFlagManager";
 
 interceptSplitRequests();
@@ -96,7 +95,7 @@ export const SplitConsole = ({
   colorMode: propColorMode,
 }: SplitConsoleProps) => {
   const { colorMode } = useColorMode(propColorMode);
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, onClose, onToggle } = useDisclosure();
   const [flagManager, setFlagManager] = useState<SplitFlagManager | null>();
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<"all" | "active" | "killed">(
@@ -120,7 +119,7 @@ export const SplitConsole = ({
   const initialTreatmentsRef = React.useRef<
     Record<string, { treatment: string }>
   >({});
-  const overrideCount = Object.entries(state.treatments).reduce(
+  const overrideCount = Object.entries(getStoredOverrides()).reduce(
     (count, [key, value]: [string, any]) => {
       const initial = initialTreatmentsRef.current[key]?.treatment;
       if (initial !== value.treatment) {
@@ -229,10 +228,9 @@ export const SplitConsole = ({
   const handleSave = () => {
     if (flagManager) {
       flagManager.applyTreatments(state.treatments);
-      console.log(state.treatments);
     }
-    const queryParams = new URLSearchParams(window.location.search);
 
+    const queryParams = new URLSearchParams(window.location.search);
     Object.entries(state.treatments).forEach(([key, value]) => {
       const treatmentValue = value as { treatment: string };
       queryParams.set(`ff_${key}`, treatmentValue.treatment);
@@ -241,7 +239,6 @@ export const SplitConsole = ({
     const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
     window.history.replaceState(null, "", newUrl);
 
-    // window.location.reload();
     dispatch({ type: SPLIT_IO_CONSOLE_ACTIONS.RESET_CHANGES });
   };
 
@@ -306,7 +303,7 @@ export const SplitConsole = ({
             />
 
             <Box>
-              <Accordion colorMode={colorMode} defaultIndex={[0]}>
+              <Accordion colorMode={colorMode}>
                 <AccordionItem>
                   <AccordionButton px={0}>
                     <Box flex="1" textAlign="left">

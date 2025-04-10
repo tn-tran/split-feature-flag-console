@@ -45,18 +45,14 @@ export class SplitFlagManager {
     this.splits.forEach((flag) => {
       const override = treatments[flag.name];
       if (override) {
-        // Optional: Add a field for override so `getCurrentTreatment` can use it
         (flag as any).__overrideTreatment = override.treatment;
       }
     });
   }
 
   updateTreatment(flagName: string, treatment: string) {
-    // Find the flag and update its current treatment
     const flagIndex = this.splits.findIndex((flag) => flag.name === flagName);
     if (flagIndex >= 0) {
-      // Update the treatment in your flags data structure
-      // The exact implementation depends on how your flag data is structured
     }
   }
 
