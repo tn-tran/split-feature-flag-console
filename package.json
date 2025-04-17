@@ -70,6 +70,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "resolutions": {
+    "@types/react": "17.0.14",
+    "@types/react-dom": "17.0.14"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

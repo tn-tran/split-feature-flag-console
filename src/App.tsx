@@ -1,9 +1,8 @@
+/* eslint no-use-before-define: 2 */
 import React from "react";
 import { SplitProvider } from "./application/SplitProvider";
 import { SplitConsole } from "./application/SplitConsole";
 import SplitFeatureFlag from "./components/SplitFeatureFlag";
-// import { baseTheme } from "@chakra-ui/theme";
-// import { ChakraProvider } from "@chakra-ui/react";
 import { AddIcon } from "@allergan-data-labs/alle-elements-icons/20/addIcon";
 
 import { AccordionTheme } from "@allergan-data-labs/alle-elements-accordion";
@@ -39,6 +38,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Button } from "./Button";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -72,8 +72,6 @@ const componentThemes = {
 };
 
 // import { interceptSplitRequests } from "./application/handler";
-// interceptSplitRequests(); // Must run BEFORE Split SDK is initialized
-
 function App() {
   return (
     <AlleElementsProvider componentTheme={componentThemes}>
